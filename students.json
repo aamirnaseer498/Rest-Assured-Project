@@ -1,0 +1,34 @@
+{
+  "students": [
+    {
+      "id": 1,
+      "name": "Aamir",
+      "location": "Pakistan",
+      "phone": "123456789",
+      "courses": [
+        "java",
+        "selenium"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Hamza",
+      "location": "Pakistan",
+      "phone": "123456789",
+      "courses": [
+        "python",
+        "appium"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Suleman",
+      "location": "Pakistan",
+      "phone": "123456789",
+      "courses": [
+        "javascript",
+        "cypress"
+      ]
+    }
+  ]
+}
