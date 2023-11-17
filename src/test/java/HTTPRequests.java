@@ -17,20 +17,20 @@ public class HTTPRequests {
         data.put("job","QA Engineer");
 
         id=given().contentType("application/json").body(data)
-                .when().post("https://reqres.in/api/users").jsonPath().getInt("id");
+                .when().post("http://localhost:3000/students").jsonPath().getInt("id");
     }
 
     @Test(priority = 2)
    void getAllUser(){
         given()
-                .when().get("https://reqres.in/api/users?page=1")
+                .when().get("http://localhost:3000/students")
                 .then().statusCode(200).log().all();
    }
 
    @Test(priority = 3)
    void getSingleUser(){
        given()
-               .when().get("https://reqres.in/api/users/"+id)
+               .when().get("http://localhost:3000/students/"+id)
                .then().statusCode(200).log().all();
    }
 
@@ -41,15 +41,15 @@ public class HTTPRequests {
        data.put("job","SQA Engineer");
 
        given().contentType("application/json").body(data)
-               .when().put("https://reqres.in/api/users/"+id)
+               .when().put("http://localhost:3000/students/"+id)
                .then().statusCode(200).log().all();
    }
 
    @Test(priority = 5)
    void deleteUser(){
        given()
-               .when().delete("https://reqres.in/api/users/"+id)
-               .then().statusCode(204).log().all();
+               .when().delete("http://localhost:3000/students/"+id)
+               .then().statusCode(200).log().all();
    }
 
 }
