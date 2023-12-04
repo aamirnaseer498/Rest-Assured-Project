@@ -1,0 +1,44 @@
+import io.restassured.response.Response;
+import org.testng.annotations.Test;
+
+import java.util.Map;
+
+import static io.restassured.RestAssured.given;
+
+public class CookiesAndHeaders {
+
+//    @Test
+//    void testCookies(){
+//
+//        given()
+//                .when().get("https://www.google.com/")
+//                .then().cookie("AEC","Ackid1TDQUREU4W_eyoDMOuL2Wrc_OPBW6VfpgHXOr6AusW_C2EM6fWbJg").log().cookies();
+//
+//    }
+
+//    @Test
+//    void getSingleCookieInfo(){
+//
+//        Response response= given()
+//                .when().get("https://www.google.com/");
+//
+//        String cookie= response.getCookie("AEC");
+//        System.out.println("The value of cookie AEC: " + cookie);
+//
+//    }
+
+    @Test
+    void getMultipleCookies(){
+
+        Response response= given()
+                .when().get("https://www.google.com/");
+
+        Map<String,String> cookies= response.getCookies();
+
+        for (String cookie: cookies.keySet()){
+            System.out.println("The value of cookie " + cookie + ": " + response.getCookie(cookie));
+        }
+
+    }
+
+}
