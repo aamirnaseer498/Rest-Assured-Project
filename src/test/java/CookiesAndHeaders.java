@@ -1,3 +1,6 @@
+import io.restassured.http.Cookies;
+import io.restassured.http.Header;
+import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import org.testng.annotations.Test;
 
@@ -37,6 +40,40 @@ public class CookiesAndHeaders {
 
         for (String cookie: cookies.keySet()){
             System.out.println("The value of cookie " + cookie + ": " + response.getCookie(cookie));
+        }
+
+    }
+
+    @Test
+    void testHeaders(){
+
+        given()
+                .when().get("https://www.google.com/")
+                .then().header("Content-Type","text/html; charset=ISO-8859-1").and().header("Content-Encoding","gzip").and().header("Server","gws")
+                .log().headers();
+
+    }
+
+    @Test
+    void getSingleHeaderInfo(){
+
+        Response response= given()
+                .when().get("https://www.google.com/");
+
+        String headerValue= response.getHeader("Content-Type");
+        System.out.println("The value of Content-Type header: " + headerValue);
+
+    }
+
+    @Test
+    void getMultipleHeadersInfo(){
+
+        Response response= given()
+                .when().get("https://www.google.com/");
+
+        Headers headers= response.getHeaders();
+        for (Header header: headers){
+            System.out.println("The value of header " + header.getName() + ": " + headers.getValue(header.getName()));
         }
 
     }
