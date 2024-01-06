@@ -1,13 +1,12 @@
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.JSONArray;
-import org.json.JSONObject;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static io.restassured.RestAssured.given;
 
-public class ParsingResponseBody {
+public class ParsingJSONResponse {
 
     @Test
     void testJSONStaticResponse(){
