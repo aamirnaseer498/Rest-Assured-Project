@@ -48,4 +48,18 @@ public class FileUploadDownload {
 
     }
 
+    @Test
+    void fileDownload(){
+
+        given()
+                .when()
+                .get("http://localhost:8080/downloadFile/DWSample1-TXT.txt")
+
+                .then()
+                .statusCode(200)
+                .log()
+                .all();
+
+    }
+
 }
