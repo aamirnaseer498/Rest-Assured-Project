@@ -87,4 +87,25 @@ public class Authentication {
 
     }
 
+    @Test
+    void apiKeyAuthentication(){
+
+        String key= "f2f6c2f4bb5989e855fd75d691d2a737";
+
+        given()
+                .pathParams("path","data/2.5/weather")
+                .queryParam("q","Rawalpindi")
+                .queryParam("units","metric")
+                .queryParam("cnt","7")
+                .queryParam("appid",key)
+
+                .when()
+                .get("https://api.openweathermap.org/{path}")
+
+                .then()
+                .statusCode(200)
+                .log().all();
+
+    }
+
 }
