@@ -70,4 +70,21 @@ public class Authentication {
 
     }
 
+    @Test
+    void oAuth2Authentication(){
+
+        String token= "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";
+
+        given()
+                .auth().oauth2(token)
+
+                .when()
+                .get("https://api.github.com/user/repos")
+
+                .then()
+                .statusCode(200)
+                .log().all();
+
+    }
+
 }
