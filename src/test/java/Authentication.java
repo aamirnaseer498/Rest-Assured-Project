@@ -53,4 +53,21 @@ public class Authentication {
 
     }
 
+    @Test
+    void bearerTokenAuthentication(){
+
+        String token= "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";
+
+        given()
+                .headers("Authorization","Bearer " + token)
+
+                .when()
+                .get("https://api.github.com/user/repos")
+
+                .then()
+                .statusCode(200)
+                .log().all();
+
+    }
+
 }
