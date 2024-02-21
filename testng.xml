@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test name="C:/Users/9D/IdeaProjects/Rest-Assured-Project">
+        <classes>
+            <class name="Chaining.CreateUser"/>
+            <class name="Chaining.GetUser"/>
+            <class name="Chaining.UpdateUser"/>
+            <class name="Chaining.DeleteUser"/>
+        </classes>
+    </test>
+</suite>
